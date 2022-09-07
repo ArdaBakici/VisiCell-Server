@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='upload_style.css') }}">
+{% endblock %}
+{% block content %}
+<div class="float-end mx-2 my-2">
+    <a href={% block redirectLink %}{% endblock %}>{% block changeLang %}{% endblock %}</a>
+</div>
+<div class="row justify-content-center my-5">
+    <div class="col-lg-1 col-2 mx-0 my-auto">
+        <img src="{{ url_for('static', filename='images/cell_eye.png') }}" class="img-fluid" alt="icon">
+    </div>
+    <div class="col-2 my-auto mb-0">
+        <p style="font-size: 5vw; color: white;" >VisiCell</p>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <form action={% block form_url %}{% endblock %} class="submission-form mx-2" method="post" enctype="multipart/form-data">
+        <div class="row justify-content-center mb-3">
+            <div class="col-auto">
+                <label for="image" class="form-label" style="font-size: 1.1rem; color: white">{% block uploadPhoto %}{% endblock %}</label>
+            </div>
+            <div class="col-auto mx-auto mx-lg-0">
+                <input class="form-control form-control-sm" type="file" name="image" required="true" id="formFileSm" accept=".bmp, .dib, .jpg, .jpeg, .jpe, .jp2, .png, .pbm, .pgm, .ppm, .sr, .ras, .tiff, .tif">
+            </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-auto">
+                <label for="dilutionFactor" class="col-form-label col-auto" style="color:white">{% block dilution %}{% endblock %}</label>
+            </div>
+            <div class="col-auto mx-auto mx-lg-0">
+                <input type="number" class="form-control border-dark text-center" min="0" step="any" id="dilutionFactor" name="dilutionFactor">
+            </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-auto">
+                <input type="submit" class="btn btn-light" value={% block submit %}{% endblock %}>
+            </div>
+            <div class="col-auto">
+                <input type="reset" class="btn btn-light" value={% block reset %}{% endblock %}>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

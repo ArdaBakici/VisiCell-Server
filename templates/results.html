@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='result_style.css') }}">
+{% endblock %}
+{% block content %}
+	<div class="row mb-3 mt-1">
+		<a class="col-1" href="{{ url_for('upload', lang=site_lang) }}">
+			<img src="{{ url_for('static', filename='images/cell_eye.png') }}" class="img-fluid" alt="icon">
+		</a>
+		<a class="col-1 my-auto" href="{{ url_for('upload', lang=site_lang) }}">   
+			<p style="font-size: 2vw; color: white;" >VisiCell</p>
+		</a>
+	</div>
+	<div class="text-center">
+		<img class="img-fluid" alt="results" src="data:image/png;base64,{{ img }}">
+	</div>
+	<div class="my-3" style="font-size: 1.25rem">
+		{% set  totalcell_count = alivecell_count + deadcell_count %}
+		<div class="row">
+			<div class="col-12 col-lg-6 text-center">
+				<p>{% block text_live_cell %}{% endblock %} {{ alivecell_count }}</p>
+			</div>
+
+			<div class="col-12 col-lg-6 text-center">
+				<p>{% block text_dead_cell %}{% endblock %} {{ deadcell_count }}</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12 col-lg-6 text-center">
+				<p>{% block text_total_cell %}{% endblock %} {{ totalcell_count }}</p>
+			</div>
+
+			<div class="col-12 col-lg-6 text-center">
+				{% if totalcell_count == 0 %}
+					<p>{% block cell_viability_non %}{% endblock %} 0</p>
+				{% else %}
+					<p>{% block cell_viability %}{% endblock %} {{ (alivecell_count / totalcell_count) * 100 }}</p>
+				{% endif %}
+				
+			</div>
+		</div>
+
+		{% if not dilutionFactor == -1 %}
+			<div class="row mb-3">
+				<div class="col-12 col-lg-4 text-center">
+					<p>{{ (alivecell_count*dilutionFactor) * 10000 }} {% block live_cell_per_ml %}{% endblock %}</p>
+				</div>
+
+				<div class="col-12 col-lg-4 text-center">
+					<p>{{ (deadcell_count*dilutionFactor) * 10000 }} {% block dead_cell_per_ml %}{% endblock %}</p>
+				</div>
+
+				<div class="col-12 col-lg-4 text-center">
+					<p>{{ (totalcell_count*dilutionFactor) * 10000 }} {% block total_cell_per_ml %}{% endblock %}</p>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+
+{% endblock %}

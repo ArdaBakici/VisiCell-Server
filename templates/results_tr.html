@@ -1,0 +1,23 @@
+{% extends 'results.html' %}
+
+{# Base.html #}
+
+{% set site_lang = "tr" %}
+
+{# Results.html #}
+
+{% block text_live_cell %} Canlı Hücre Sayısı {% endblock %}
+
+{% block text_dead_cell %} Ölü Hücre Sayısı {% endblock %}
+
+{% block text_total_cell %} Toplam Hücre Sayısı {% endblock %}
+
+{% block cell_viability_non %} Hücre Canlılığı {% endblock %}
+
+{% block cell_viability %} Hücre Canlılığı {% endblock %}
+
+{% block live_cell_per_ml %} mililitre başına canlı hücre {% endblock %}
+
+{% block dead_cell_per_ml %} mililitre başına ölü hücre {% endblock %}
+
+{% block total_cell_per_ml %} mililitre başına toplam hücre {% endblock %}

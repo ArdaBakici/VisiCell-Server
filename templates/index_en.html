@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{# Base.html #}
+
+{% set site_lang = 'en' %}
+
+{# Index.html #}
+
+{% block redirectLink %}"{{ url_for('upload', lang='tr') }}"{% endblock %}
+
+{% block changeLang %}Türkçe{% endblock %}
+
+{% block form_url %}"/en/processing"{% endblock %}
+
+{% block uploadPhoto %} Please upload an image that you want to process {% endblock %}
+
+{% block dilution %} If you want cells per mililitre to be computed please enter dilution factor. {% endblock %}
+
+{% block submit %} "Analyze" {% endblock %}
+
+{% block reset %} "Reset" {% endblock %}

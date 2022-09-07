@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{# Base.html #}
+
+{% set site_lang = 'tr' %}
+
+{# Index.html #}
+
+{% block redirectLink %}"{{ url_for('upload', lang='en') }}"{% endblock %}
+
+{% block changeLang %}English{% endblock %}
+
+{% block form_url %}"/tr/processing"{% endblock %}
+
+{% block uploadPhoto %} Lütfen İşlemek İstediğiniz Fotoğrafı Yükleyiniz {% endblock %}
+
+{% block dilution %} Eğer mililitre başına hücre sayısının hesaplanmasını istiyorsanız seyreltme faktörünü giriniz. {% endblock %}
+
+{% block submit %} "Analiz Et" {% endblock %}
+
+{% block reset %} "Sıfırla" {% endblock %}
