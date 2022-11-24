@@ -9,7 +9,7 @@ Flask and Pytorch based server-side application for <a href="https://github.com/
 ---
 
 ## What is VisiCell?
-VisiCell is a web and mobile based application for counting cells died with trypan blue. Normally cells are counted by hand. Even though there are automated methods these methods use machines which are expensive to buy and maintain also they are not portable. VisiCell solves this problem by using machine learning for counting the cells. In order to use VisiCell you should take photo of the cells using your phone or camera of the microscope. Then upload the image to VisiCell and your photo will be analyzed in miliseconds with an accuracy of +90%. VisiCell is cheaper, more accessable, portable and faster compared with its alternatives.
+VisiCell is a web and mobile-based application for counting cells that died with trypan blue. Normally, cells are counted manually. Even though there are automated methods, these methods use machines that are expensive to buy and maintain also they are not portable. VisiCell solves this problem by using machine learning for counting the cells. To use VisiCell, you should take a photo of the cells using your phone or camera of the microscope. Then upload the image to VisiCell, and your photo will be analyzed in milliseconds with an accuracy of +90%. VisiCell is cheaper, more accessible, portable, and faster than its alternatives.
 
 ## What is VisiCell-Server?
 VisiCell-Server is the main part of the ![VisiCell](https://github.com/ArdaBakici/VisiCell) project and contains machine learning, web server and website codes.
